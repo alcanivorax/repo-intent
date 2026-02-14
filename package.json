@@ -1,0 +1,61 @@
+{
+  "name": "repo-intent",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "bin": {
+    "repo-intent": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "clean": "rimraf dist",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "npm run build",
+    "postbuild": "chmod +x dist/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alcanivorax/repo-intent.git"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "alcanivorax",
+  "license": "MIT",
+  "packageManager": "pnpm@10.28.0",
+  "devDependencies": {
+    "@types/node": "^25.0.9",
+    "@typescript-eslint/eslint-plugin": "^8.53.1",
+    "@typescript-eslint/parser": "^8.53.1",
+    "eslint": "^9.39.2",
+    "prettier": "^3.8.1",
+    "rimraf": "^6.1.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^14.0.3",
+    "ignore": "^7.0.5",
+    "octokit": "^5.0.5",
+    "ora": "^9.3.0",
+    "p-limit": "^7.3.0",
+    "simple-git": "^3.30.0",
+    "zod": "^4.3.6"
+  }
+}

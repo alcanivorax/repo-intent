@@ -1,0 +1,5 @@
+# repo-intent
+
+## License
+
+MIT
