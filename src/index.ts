@@ -2,8 +2,9 @@
 
 import { Command } from 'commander'
 import { parseRepoInput } from './util/parseRepoInput.js'
-import { getRepoTree } from './core/github/tree.js'
-import { filterFiles } from './core/filterFiles.js'
+import { getRepoTree } from './core/github/getRepoTree.js'
+// import { filterFiles } from './core/filterFiles.js'
+import { getContent } from './core/github/getContent.js'
 
 const program = new Command()
 
@@ -12,9 +13,13 @@ program
   .argument('[target]', 'Path to repository')
   .action(async (target) => {
     const { owner, repo } = parseRepoInput(target)
-    const tree = await getRepoTree(owner, repo)
-    const filteredFiles = await filterFiles(owner, repo, 'main', tree)
-    console.log(filteredFiles)
+    // const tree = await getRepoTree(owner, repo)
+    // console.log(tree)
+    const content = await getContent(owner, repo)
+    console.log(content)
+
+    // const filteredFiles = await filterFiles(owner, repo, 'main', tree)
+    // console.log(filteredFiles)
   })
 
 program.parse()

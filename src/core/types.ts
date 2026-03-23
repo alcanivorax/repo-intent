@@ -16,3 +16,10 @@ export interface FileInfo {
   extension: string
   language: string
 }
+
+export interface FileNode {
+  path: string
+  sha: string
+  size?: number
+  type: string
+}
